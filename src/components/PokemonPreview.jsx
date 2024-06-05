@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { colorByType } from "./colorType/pokemontype";
 
-const PokemonPreview = ({pokemonURL}) => {
+const PokemonPreview = ({pokemonURL, onClick}) => {
 const [pokemon, setPokemon] = useState(null);
 
 
@@ -14,8 +14,8 @@ useEffect(() => {
     }, [])
 
 return (
-<article className="text-center bg-white rounded-[30px] relative font-semibold capitalize pb-4 shadow-lg shadow-slate-400/20
-border-2 border-transparent hover:border-slate-200 cursor-pointer hover:scale-105 transition-transform grid gap-2">
+<article onClick={() => onClick(pokemon)} className="text-center bg-white rounded-[30px] relative font-semibold capitalize pb-4 shadow-lg shadow-slate-400/20
+border-2 border-transparent hover:border-red-200 cursor-pointer hover:scale-105 transition-transform grid gap-2">
     <header className="h-9 ">
         <img className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 pixelated"
         src={pokemon?.sprites.versions["generation-v"]["black-white"].front_default} alt="" />
